@@ -1,0 +1,43 @@
+{{>Cap}}
+{{#partial Cap}}
+<div intro="fade" class="card-header">
+    <div class="card-inner">
+        <h1 class="card-heading">Major/Minor Programs</h1>
+    </div>
+    <span class="icon icon-lg" style="padding-right:35px !important;">school</span>
+</div>
+<div intro="fade" class="card-inner">	
+    <div class="form-group form-group-label">               
+        <div class="row">                                      
+            <div class="col-md-10 col-md-push-1">
+                <label class="floating-label" for="ui_cap_year">Year</label>
+                <select class="form-control" id="ui_cap_year" value="{{Cap.Year}}">
+                    {{#years}}
+                        <option value="{{Year}}">{{Year}}</option>
+                    {{/years}}
+                </select>                 
+            </div>                   
+        </div>
+    </div>
+    <div class="form-group form-group-label">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <label class="floating-label" for="ui_graduate_type{{i}}">Type</label>
+                <select class="form-control" id="ui_graduate_type{{i}}" value="{{Cap.GraduateType}}">
+                    {{#types}}
+                        <option value="{{GraduationTypeID}}">{{GraduationTypeName}}</option>
+                    {{/types}}
+                </select>									
+            </div>
+        </div>     
+    </div>
+    <div class="form-group form-group-label">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <label class="floating-label" for="ui_cap_department">Department</label>
+                <input class="form-control" id="ui_cap_department" value="{{Cap.DepartmentName}}" type="text" on-change="validateDepartmentName">
+            </div>
+        </div>
+    </div>
+</div>    
+{{/partial}}

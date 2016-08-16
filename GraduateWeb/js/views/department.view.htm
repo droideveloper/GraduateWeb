@@ -1,0 +1,9 @@
+{{#each Departments: i}}
+    {{>Deparment}}
+{{/each}}
+{{#partial Department}}
+    {{#if i === 0}}
+        <option value="0"></option><!-- Empty means null -->
+    {{/if}}
+    <option value="{{.DepartmentID}}">{{.DepartmentName}}</option>
+{{/partial}}

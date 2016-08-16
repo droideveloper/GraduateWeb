@@ -1,0 +1,15 @@
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\bin\GraduateWeb.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\bin\GraduateWeb.pdb
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\bin\EntityFramework.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\bin\EntityFramework.SqlServer.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\bin\GraduateEntity.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\bin\GraduateEntityProxy.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\bin\MySql.Data.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\bin\MySql.Data.Entity.EF6.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\bin\GraduateEntityProxy.pdb
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\bin\GraduateEntity.pdb
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\bin\EntityFramework.xml
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\bin\EntityFramework.SqlServer.xml
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\obj\Debug\GraduateWeb.csprojResolveAssemblyReference.cache
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\obj\Debug\GraduateWeb.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateWeb\obj\Debug\GraduateWeb.pdb

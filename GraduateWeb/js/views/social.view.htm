@@ -1,0 +1,35 @@
+﻿{{>Social}}
+{{#partial Social}}
+    <div intro="fade" class="card-header">
+        <div class="card-inner">                                        
+            <h1 class="card-heading">Social</h1>
+        </div>
+        <span class="icon icon-lg" style="padding-right:35px !important;">share</span>
+    </div>
+    <div intro="fade" class="card-inner">									
+        <div class="form-group form-group-label">
+            <div class="row">
+                <div class="col-md-10 col-md-push-1">
+                    <label class="floating-label" for="ui_linkedin">LinkedIn</label>
+                    <input class="form-control" id="ui_linkedin" type="text" value="{{.Linkedin}}" on-change="validateLinkedin">
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-group-label">
+            <div class="row">
+                <div class="col-md-10 col-md-push-1">
+                    <label class="floating-label" for="ui_twitter">Twitter</label>
+                    <input class="form-control" id="ui_twitter" type="text" value="{{.Twitter}}">
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-group-label">
+            <div class="row">
+                <div class="col-md-10 col-md-push-1">
+                    <label class="floating-label" for="ui_facebook">Facebook</label>
+                    <input class="form-control" id="ui_facebook" type="text" value="{{.Facebook}}">
+                </div>
+            </div>
+        </div>
+    </div>
+{{/partial}}

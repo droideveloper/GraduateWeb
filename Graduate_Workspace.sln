@@ -1,0 +1,83 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduateEntity", "GraduateEntity\GraduateEntity.csproj", "{274BCA23-95FB-451E-9A6D-B540BEBB7C4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduateWeb", "GraduateWeb\GraduateWeb.csproj", "{89DE1DC5-3F7B-4E38-8BF7-1A0BF8109E3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContextCreatingConsoleApp", "ContextCreatingConsoleApp\ContextCreatingConsoleApp.csproj", "{501BAAD0-901E-48D4-AE9A-6DB240007A70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduateEntityProxy", "GraduateEntityProxy\GraduateEntityProxy.csproj", "{2BDE5497-E7D9-4844-BA69-5FB32E392347}"
+	ProjectSection(ProjectDependencies) = postProject
+		{274BCA23-95FB-451E-9A6D-B540BEBB7C4E} = {274BCA23-95FB-451E-9A6D-B540BEBB7C4E}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{274BCA23-95FB-451E-9A6D-B540BEBB7C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{274BCA23-95FB-451E-9A6D-B540BEBB7C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{274BCA23-95FB-451E-9A6D-B540BEBB7C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{274BCA23-95FB-451E-9A6D-B540BEBB7C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89DE1DC5-3F7B-4E38-8BF7-1A0BF8109E3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89DE1DC5-3F7B-4E38-8BF7-1A0BF8109E3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89DE1DC5-3F7B-4E38-8BF7-1A0BF8109E3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89DE1DC5-3F7B-4E38-8BF7-1A0BF8109E3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{501BAAD0-901E-48D4-AE9A-6DB240007A70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{501BAAD0-901E-48D4-AE9A-6DB240007A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{501BAAD0-901E-48D4-AE9A-6DB240007A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{501BAAD0-901E-48D4-AE9A-6DB240007A70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BDE5497-E7D9-4844-BA69-5FB32E392347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BDE5497-E7D9-4844-BA69-5FB32E392347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BDE5497-E7D9-4844-BA69-5FB32E392347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BDE5497-E7D9-4844-BA69-5FB32E392347}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = None
+		$1.ResourceNamePolicy = MSBuild
+		$0.TextStylePolicy = $8
+		$2.inheritsSet = null
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.IndentSwitchSection = True
+		$3.NewLinesForBracesInTypes = False
+		$3.NewLinesForBracesInMethods = False
+		$3.NewLineForMembersInObjectInit = True
+		$3.NewLineForMembersInAnonymousTypes = True
+		$3.NewLineForClausesInQuery = True
+		$3.SpacingAfterMethodDeclarationName = False
+		$3.SpaceAfterMethodCallName = False
+		$3.SpaceAfterControlFlowStatementKeyword = False
+		$3.SpaceAfterCast = True
+		$3.SpaceBeforeOpenSquareBracket = False
+		$3.inheritsSet = Mono
+		$3.inheritsScope = text/x-csharp
+		$3.scope = text/x-csharp
+		$4.FileWidth = 120
+		$4.TabsToSpaces = False
+		$4.inheritsSet = VisualStudio
+		$4.inheritsScope = text/plain
+		$4.scope = text/plain
+		$5.inheritsSet = null
+		$5.scope = application/config+xml
+		$0.XmlFormattingPolicy = $9
+		$6.inheritsSet = null
+		$6.scope = application/config+xml
+		$7.inheritsSet = null
+		$7.scope = application/javascript
+		$8.inheritsSet = null
+		$8.scope = image/svg+xml
+		$9.inheritsSet = null
+		$9.scope = image/svg+xml
+		$0.StandardHeader = $10
+		$10.Text = @\n Copyright ${Year}  ${CopyrightHolder}\n\n   Licensed under the Apache License, Version 2.0 (the "License");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an "AS IS" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.
+		$10.IncludeInNewFiles = True
+	EndGlobalSection
+EndGlobal

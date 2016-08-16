@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" >	
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="mobile-web-app-capable" content="yes">
+   
+    <!-- css -->
+	<link href="css/base.min.css" rel="stylesheet">
+	<link href="css/project.min.css" rel="stylesheet">
+    <style type="text/css">
+        /*
+            original .form-group style has top and bottom margin of 24px
+            however when we added form-group-label it overrides it as 36px
+            personally find it too large so need to override it to it's defaults
+        */
+        .form-group {
+            margin-bottom: 24px;
+            margin-top: 24px;
+        }
+        .form-group .form-group-label {
+            margin-bottom: 24px;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body class="page-brand">
+	<header class="header header-brand ui-header">
+		<span class="header-logo">Create Account</span><!-- TODO change title -->
+	</header>
+    <main class="content">
+		<div class="container">
+			<div class="row">
+                <div class="col-lg-4 col-lg-push-4 col-sm-6 col-sm-push-0">
+                    <section class="content-inner">
+                        <div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h1 class="card-heading">Account</h1>
+									</div>
+                                    <span class="icon icon-lg" style="padding-right:35px !important;">person</span>
+								</div>
+								<div class="card-inner">					
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_username">Username</label>
+												<input class="form-control" id="ui_username" type="text">
+											</div>
+										</div>
+									</div>                                    
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_password">Password</label>
+												<input class="form-control" id="ui_password" type="password">
+											</div>
+										</div>
+									</div>
+                                    <div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_password_re">Password Again</label>
+												<input class="form-control" id="ui_password_re" type="password">
+											</div>
+										</div>
+									</div>									
+								</div>
+                                <div class="card-header">
+									<div class="card-inner">
+										<h1 class="card-heading">Personal</h1>
+									</div>
+                                    <span class="icon icon-lg" style="padding-right:35px !important;">chrome_reader_mode</span>
+								</div>
+								<div class="card-inner">	
+                                    <div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_identity">Identity or Pasport Number</label>
+												<input class="form-control" id="ui_identity" type="text">
+											</div>
+										</div>
+									</div>     
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_fistname">First Name</label>
+												<input class="form-control" id="ui_fistname" type="text">
+											</div>
+										</div>
+									</div>                                    
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_middlename">Middle Name</label>
+												<input class="form-control" id="ui_middlename" type="text">
+											</div>
+										</div>
+									</div>
+                                    <div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_lastname">Last Name</label>
+												<input class="form-control" id="ui_lastname" type="text">
+											</div>
+										</div>
+									</div>	
+                                    <div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_phone">Phone</label>
+												<input class="form-control" id="ui_phone" type="text">
+											</div>
+										</div>
+									</div>	
+								</div>
+								<div class="card-header">
+									<div class="card-inner">                                        
+										<h1 class="card-heading">Social</h1>
+									</div>
+                                    <span class="icon icon-lg" style="padding-right:35px !important;">share</span>
+								</div>
+								<div class="card-inner">									
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_linkedin">LinkedIn</label>
+												<input class="form-control" id="ui_linkedin" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_twitter">Twitter</label>
+												<input class="form-control" id="ui_twitter" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_facebook">Facebook</label>
+												<input class="form-control" id="ui_facebook" type="text">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>                        
+                    </section>    
+                </div>
+                <!-- Education, University, GraduateType {Undergraduate, Graduate, Master, Major, Minor, PhD ..etc} -->
+                <!-- Use custom bindings and data types will be provided server -->
+                <div class="col-lg-4 col-lg-push-8 col-sm-6 col-sm-push-0">
+                    <section class="content-inner">
+                        <div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h1 class="card-heading">Education</h1>
+									</div>
+                                    <span class="icon icon-lg" style="padding-right:35px !important;">school</span>
+								</div>
+								<div class="card-inner">                                   
+                                    <div id="output"></div>
+                                    <div class="clearfix">
+                                        <p class="margin-no-top margin-no-bottom pull-right">                                             
+                                            <button class="btn btn-flat btn-brand btn-add-education waves-attach waves-effect waves-light">ADD NEW EDUCATION</button>                               
+                                        </p>
+                                    </div>                                    
+                                </div>                                           
+                                <!-- Template Ends -->   
+                                <div class="card-header">
+									<div class="card-inner">
+										<h1 class="card-heading">Workplace</h1>
+									</div>
+                                    <span class="icon icon-lg" style="padding-right:35px !important;">work</span>
+								</div>
+                                <div class="card-inner">									
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_workplace_title">Title</label>
+												<input class="form-control" id="ui_workplace_title" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_workpalce_department">Department</label>
+												<input class="form-control" id="ui_workpalce_department" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_organization_name">Organization Name</label>
+												<input class="form-control" id="ui_organization_name" type="text">
+											</div>
+										</div>
+									</div>
+                                    <div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_industry">Industry</label>
+												<input class="form-control" id="ui_industry" type="text">
+											</div>
+										</div>
+									</div>
+                                </div>							
+                            </div>    
+						</div>
+                        <div class="clearfix">
+                            <p class="margin-no-top margin-no-bottom pull-right">
+                                <button id="btnCancelAccount" class="btn btn-flat btn-brand waves-attach waves-effect waves-light">CANCEL</button>
+                            </p>
+                            <p class="margin-no-top margin-no-bottom pull-right">
+                                <button id="btnSaveAccount" class="btn btn-flat btn-brand waves-attach waves-effect waves-light">SAVE</button>                                                               
+                            </p>                           
+                        </div>		
+                    </section>    
+                </div>                
+            </div>
+        </div>    
+    </main>
+	<footer class="ui-footer">
+		<div class="container">
+            <p>Welcome To Graduation Database Register Page</p>
+		</div>
+	</footer>
+	<script src='js/jquery-3.1.0.min.js'></script>
+	<script src='js/ractive.min.js'></script>
+    <script src='js/md5.js'></script>
+    <script src='js/base.min.js'></script>
+    <script>
+        var DEFAULTS = {
+	       delay: 0,
+	       duration: 300,
+	       easing: 'linear'
+        };
+
+        var fadeTransition = function fade ( t, params ) {
+	       var targetOpacity;
+
+	       params = t.processParams( params, DEFAULTS );
+
+	       if ( t.isIntro ) {
+		      targetOpacity = t.getStyle( 'opacity' );
+		      t.setStyle( 'opacity', 0 );
+	       } else {
+		      targetOpacity = 0;
+	       }
+
+	       t.animateStyle( 'opacity', targetOpacity, params ).then( t.complete );
+        };
+    </script>    
+    <!-- binding template -->
+    <script id="template" type="text/reactive">                                        
+        {{#each graduations: i}}
+            {{>graduation}}
+        {{/each}} 
+        {{#partial graduation}}
+        <!-- if item index > 0 we should be able to seperate each item with dummy header line -->
+        {{#if i > 0}}
+            <div class="card-header" style="min-height:0px;margin:0px;"><div class="card-inner" style="min-height:0px;margin:0px;"></div></div>
+        {{/if}}
+         <div intro="fade" class="graduation">
+          <!-- if item index > 0 we should be able to delete it -->
+            {{#if i > 0}}
+            <div class="clearfix">
+                <p class="margin-no-top margin-no-bottom pull-right">
+                    <button class="btn btn-flat btn-brand waves-attach waves-effect waves-light pull-right" on-click="remove">REMOVE</button>                  
+                </p>
+            </div>    
+            {{/if}}
+            <div class="form-group form-group-label">               
+                <div class="row">                                      
+                    <div class="col-md-10 col-md-push-1">
+                        <label class="floating-label" for="ui_graduate_year{{i}}">Graduate Year</label>
+                        <input class="form-control" id="ui_graduate_year{{i}}" value="{{.graduateYear}}" type="text">                         
+                    </div>                   
+                </div>
+            </div>
+            <!-- Bind from db -->
+            <div class="form-group form-group-label">
+                <div class="row">
+                    <div class="col-md-10 col-md-push-1">
+                        <!-- TODO make this combo -->
+                        <label class="floating-label" for="ui_graduate_type{{i}}">Graduation Type</label>
+                        <input class="form-control" id="ui_graduate_type{{i}}" value={{.graduateType}} type="text">											
+                    </div>
+                </div>     
+            </div>
+            <!-- Bind from db -->
+            <div class="form-group form-group-label">
+                <div class="row">
+                    <div class="col-md-10 col-md-push-1">
+                        <label class="floating-label" for="ui_department{{i}}">Department</label>
+                        <input class="form-control" id="ui_department{{i}}" value="{{.departmentName}}" type="text">
+                    </div>
+                </div>
+            </div>
+            <!-- Bind from db -->
+            <div class="form-group form-group-label">
+                <div class="row">
+                    <div class="col-md-10 col-md-push-1">
+                        <label class="floating-label" for="ui_university{{i}}">University</label>
+                        <input class="form-control" id="ui_university{{i}}" value="{{.university}}" type="text">
+                    </div>
+                </div>
+            </div>         
+            <!-- Bind from db -->
+            <div class="form-group form-group-label">
+                <div class="row">                                            
+                    <div class="col-md-10 col-md-push-1">
+                        <label class="floating-label"  for="ui_university_city{{i}}">City</label>
+                        <input class="form-control" id="ui_university_city{{i}}" value="{{.city}}" type="text">
+                    </div>                                         
+                </div>
+            </div>
+            <!-- Bind from db -->
+            <div class="form-group form-group-label">
+                <div class="row">                                            
+                    <div class="col-md-10 col-md-push-1">
+                        <label class="floating-label" for="ui_university_country{{i}}">Country</label>
+                        <input class="form-control" id="ui_university_country{{i}}" value="{{.country}}" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>  
+        {{/partial}}
+    </script>
+    <script>
+        //email validation
+        var isEmailNotValid = function(str) {
+            var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return str === null || !regex.test(str);
+        };
+        //password content validation
+        var isPasswordNotValid = function(str) {
+            return str === null || str.length < 8;        
+        };
+        //if two password not match
+        var isPasswordsNotMatch = function(s1, s2) {
+            return s1 === null || s2 === null || !s1.equals(s2);
+        };
+        //first name validaiton
+        var isFirstNameNotValid = function(str) {
+            return str == null || str.length < 3;  
+        };
+        //last name validation, lenght 2 since case there 2 letter surnames...sight!
+        var isLastNameNotValid = function(str) {
+            return str === null || str.length < 2;    
+        };
+        //linkedin validation
+        var isLinkedinNotValid = function(str) {
+            return str === null || str.length < 2;  
+        };
+        //title validation
+        var isTitleNotValid = function(str) {
+            return str == null || str.length < 2;  
+        };
+        
+        var notifyUser = function(str, handle) {
+            $('body').snackbar({
+                alive: 3000,
+                content: '<a data-dismiss="snackbar" class="notification-click">OK</a><div class="snackbar-text">' + str + '</div>'
+            }); 
+            //if we have handle
+            if(handle) {
+                $('.notificatiın-click').bind('click', handle);
+            }
+        };
+        
+        var callback = {
+            onSuccess: function(response) {
+                if(response.Code == 200) {
+                    //TODO handle success
+                } else {
+                    var str = response.Message;
+                    notifyUser(str, null);
+                }    
+            },
+            onError: function(err) {
+                var str = err.toString();
+                notifyUser(str, null);
+            }
+        };
+        
+        var constants = {//TODO change Url
+            Url: '/v1/endpoint/create-an-account',
+            HttpMethod: 'POST',
+            ContentType: 'application/json; charset=utf-8',
+            DataType: 'json',
+            Callback: callback
+        };
+        
+        var request = function(dataSet) {
+            $.ajax({
+                url: constants.Url,
+                type: constants.HttpMethod,
+                data: JSON.stringify(dataSet),
+                contentType: constants.ContentType,
+                dataType: constants.DataType,
+                success: constants.Callback.onSuccess,
+                failure: constants.Callback.onError
+            });  
+        };
+        
+        var emptyEducation = {
+            graduateYear: null,
+            graduateType: null,
+            departmentName: null,
+            university: null,
+            city: null,
+            country: null
+        };
+        
+        var Educations = Ractive.extend({
+            template: '#template',              
+            partials: { },    
+            addItem: function(item) {
+                this.push('graduations', item);
+            },
+            removeItem: function(index) {
+                this.splice('graduations', index, 1);
+            },
+            oninit: function(options) {
+                this.on({
+                    remove: function(event) {
+                        this.removeItem(event.index.i);
+                    }
+                });
+            },                
+            transitions: {
+                fade: fadeTransition
+            }
+        });
+        
+        var viewModel = new Educations({
+            el: 'output',
+            data: {
+                graduations: [ emptyEducation ]
+            }
+        });
+        
+        var addNewEducationEventHandler = function() {
+            viewModel.addItem(emptyEducation);    
+        };
+        
+        var saveAccountEventHandler = function() {
+            //TODO handle save action    
+        };
+        
+        var cancelEventHandler = function() {
+            //TODO handle cancel action    
+        };
+        
+        $(document).ready(function() {            
+            //bind Buttons
+            $('#btnSaveAccount').bind('click', saveAccountEventHandler);
+            $('#btnCancelAccount').bind('click', cancelEventHandler);
+            $('.btn-add-education').bind('click', addNewEducationEventHandler);
+        });
+    </script>
+</body>
+</html>

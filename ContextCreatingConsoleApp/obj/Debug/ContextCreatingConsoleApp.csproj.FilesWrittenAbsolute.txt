@@ -1,0 +1,12 @@
+/Users/Fatih/Projects/Graduate_Workspace/ContextCreatingConsoleApp/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/Fatih/Projects/Graduate_Workspace/ContextCreatingConsoleApp/bin/Debug/ContextCreatingConsoleApp.exe.config
+/Users/Fatih/Projects/Graduate_Workspace/ContextCreatingConsoleApp/bin/Debug/ContextCreatingConsoleApp.exe.mdb
+/Users/Fatih/Projects/Graduate_Workspace/ContextCreatingConsoleApp/bin/Debug/ContextCreatingConsoleApp.exe
+/Users/Fatih/Projects/Graduate_Workspace/ContextCreatingConsoleApp/obj/Debug/ContextCreatingConsoleApp.exe
+/Users/Fatih/Projects/Graduate_Workspace/ContextCreatingConsoleApp/obj/Debug/ContextCreatingConsoleApp.exe.mdb
+/Users/Fatih/Projects/Graduate_Workspace/ContextCreatingConsoleApp/bin/Debug/EntityFramework.dll
+/Users/Fatih/Projects/Graduate_Workspace/ContextCreatingConsoleApp/bin/Debug/EntityFramework.SqlServer.dll
+/Users/Fatih/Projects/Graduate_Workspace/ContextCreatingConsoleApp/bin/Debug/MySql.Data.dll
+/Users/Fatih/Projects/Graduate_Workspace/ContextCreatingConsoleApp/bin/Debug/MySql.Data.Entity.EF6.dll
+/Users/Fatih/Projects/Graduate_Workspace/ContextCreatingConsoleApp/bin/Debug/GraduateEntity.dll
+/Users/Fatih/Projects/Graduate_Workspace/ContextCreatingConsoleApp/bin/Debug/GraduateEntity.dll.mdb

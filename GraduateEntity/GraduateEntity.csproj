@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{274BCA23-95FB-451E-9A6D-B540BEBB7C4E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>GraduateEntity</RootNamespace>
+    <AssemblyName>GraduateEntity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\YearAvailable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Session.cs" />
+    <Compile Include="Model\Response.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\Education.cs" />
+    <Compile Include="Model\Graduation.cs" />
+    <Compile Include="Model\GraduationType.cs" />
+    <Compile Include="Model\University.cs" />
+    <Compile Include="Model\Workpalce.cs" />
+    <Compile Include="Model\Social.cs" />
+    <Compile Include="Context\GraduateDbContext.cs" />
+    <Compile Include="Model\Industry.cs" />
+    <Compile Include="Model\Department.cs" />
+    <Compile Include="Model\Title.cs" />
+    <Compile Include="Model\Country.cs" />
+    <Compile Include="Model\City.cs" />
+    <Compile Include="Model\Exchange.cs" />
+    <Compile Include="Model\Cap.cs" />
+    <Compile Include="Model\Filter.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

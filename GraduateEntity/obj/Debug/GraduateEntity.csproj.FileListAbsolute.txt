@@ -1,0 +1,11 @@
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntity\bin\Debug\GraduateEntity.dll.config
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntity\bin\Debug\GraduateEntity.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntity\bin\Debug\GraduateEntity.pdb
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntity\bin\Debug\EntityFramework.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntity\bin\Debug\MySql.Data.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntity\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntity\bin\Debug\EntityFramework.xml
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntity\obj\Debug\GraduateEntity.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntity\obj\Debug\GraduateEntity.pdb

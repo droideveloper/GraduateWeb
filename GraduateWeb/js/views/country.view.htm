@@ -1,0 +1,9 @@
+{{#each Counties: i}}
+    {{>Country}}
+{{/each}}
+{{#partial Country}}
+    {{#if i === 0}}
+        <option value="0"></option><!-- Empty means null -->
+    {{/if}}
+    <option value="{{.CountryID}}">{{.CountryName}}</option>
+{{/partial}}

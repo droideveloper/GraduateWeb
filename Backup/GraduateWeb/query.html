@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" >	
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="mobile-web-app-capable" content="yes">
+   
+    <!-- css -->
+	<link href="css/base.min.css" rel="stylesheet">
+	<link href="css/project.min.css" rel="stylesheet">
+    <style type="text/css">
+    /*
+        original .form-group style has top and bottom margin of 24px
+        however when we added form-group-label it overrides it as 36px
+        personally find it too large so need to override it to it's defaults
+    */
+        .form-group {
+            margin-bottom: 24px;
+            margin-top: 24px;
+        }
+        .form-group .form-group-label {
+            margin-bottom: 24px;
+            margin-top: 24px;
+        }
+        .ui-picker-page {
+            height: 92.5vh;
+        }
+        
+        .el-loading-indicator {
+            background-color: transparent;
+        } 
+    </style>
+</head>
+<body class="page-brand">
+    <header class="header header-brand header-standard ui-header">
+        <span class="header-logo">Search Graduates</span><!-- TODO change title -->
+    </header>
+    <main class="content ui-picker-page">
+        <div class="ui-picker-wrap">
+            <div class="ui-picker-main">            
+                <div class="ui-picker-inner">
+                    <div class="clearfix">
+                        <div class="el-loading-done" id="ui_progress">
+                            <div class="el-loading-indicator">
+                                <div class="progress progress-position-absolute-top">
+                                    <div class="progress-bar-indeterminate"></div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="form-group form-group-label">                        
+                        <div class="row">
+                            <div class="col-md-9 col-md-push-1">               
+                                <label class="floating-label" for="ui_search"><span class="icon icon-lg">search</span>&nbsp;&nbsp;Name, Surname, Graduate Year...</label>
+                                <input class="form-control" id="ui_search" type="text">
+                            </div>
+                            <div class="col-md-2 col-md-push-1">
+                                <button class="btn btn-flat btn-brand waves-attach waves-effect waves-light" id="btn_search">SEARCH</button>
+                            </div>
+                        </div>                        
+                    </div>
+                    <!-- this is where binding takes place -->
+                    <div class="tile-wrap margin-bottom-no margin-top-no ui-picker-lib" id="output">                       
+                        <!-- Template Ends-->
+                    </div>
+                </div>
+            </div>
+            <div class="ui-picker-divider"></div>
+            <div class="ui-picker-info ui-picker-info-null">
+                <div class="ui-picker-inner">
+                    <!--div class="ui-picker-map-wrap" id="ui_picker_map_wrap"></div-->
+                    <div class="container">
+                        <div class="media">
+                            <div class="media-object pull-right">
+                                <a class="btn btn-flat margin-bottom-xs margin-top-xs waves-attach ui-picker-info-close"><span class="icon">close</span></a>
+                            </div>
+                            <div class="media-inner">
+                                <div class="h5 margin-bottom-sm margin-top-sm ui-picker-info-title-wrap"></div>                               
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="col-xx-12 margin-bottom-no margin-top-no hr margin-left-no"></div>
+                    <div class="container padding-left-no padding-right-no">
+                        <div class="ui-picker-info-desc-wrap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="ui-footer">
+        <div class="container">
+           <p>Welcome To Graduation Database Search Page</p>
+        </div>
+	</footer>   
+    <script src='js/jquery-3.1.0.min.js'></script>
+    <script src='js/jquery-ui.min.js'></script>
+	<script src='js/ractive.min.js'></script>
+    <script src='js/base.min.js'></script>
+    <!-- template -->
+    <script id="template" type="text/reactive">
+        {{#each People:i}}
+            {{>Person}}
+        {{/each}}
+        {{#partial Person}}
+        <div class="tile ui-picker-item">
+            <div class="ui-picker-selectable-handler"></div>
+            <div class="tile-side pull-left">
+                <div class="avatar avatar-sm ui-picker-draggable-avatar ui-picker-draggable-handler">
+                    <strong>{{.FirstName.charAt(0)}}</strong>
+                    <span class="icon icon-lg">info</span>
+                </div>
+            </div>
+            <div class="tile-inner">
+                <div class="media">
+                    <div class="media-object pull-right">
+                        <small>GraduationYear</small>
+                    </div>
+                    <div class="media-inner text-overflow">
+                        <span class="ui-picker-info-title">{{.FirstName}} {{#if .MiddleName}} {{.MiddleName}} {{/if}} {{.LastName}}</span>
+                    </div>
+                </div>
+                <div class="access-hide">
+                    <div class="ui-picker-info-desc">
+                        <div class="col-xx-12 margin-bottom-sm margin-top-sm padding-left-s">
+                            <label clas="h5 margin-bottom-xs margin-top-xs">PERSONAL</label>
+                            <span class="icon icon-lg pull-right">chrome_reader_mode</span>
+                        </div>
+                        <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">                            
+                            <span>{{.IdentityNo}}</span>
+                        </div>
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                            <span>{{.FirstName}}</span>
+                        </div>
+                        {{#if .MiddleName}}
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                            <span>{{.MiddleName}}</span>
+                        </div>
+                        {{/if}}
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                            <span>{{.LastName}}</span>
+                        </div>
+                        {{#if .Phone}}
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                            <span>{{.Phone}}</span>
+                        </div>
+                        {{/if}}
+                        <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>                                
+                        <div class="col-xx-12 margin-bottom-sm margin-top-sm padding-left-sm">
+                            <label clas="h4 margin-bottom-xs margin-top-xs">SOCIAL</label>
+                            <span class="icon icon-lg pull-right">share</span>
+                        </div>
+                        <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                            <span>{{.Social.Linkedin}}</span>
+                        </div>
+                        {{#if .Social.Twitter}}
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                            <span>{{.Social.Twitter}}</span>
+                        </div>
+                        {{/if}}
+                        {{#if .Social.Facebook}}
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                            <span>{{.Social.Facebook}}</span>
+                        </div>       
+                        {{/if}}
+                        <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>                        
+                        <div class="col-xx-12 margin-bottom-sm margin-top-sm padding-left-s">
+                            <label clas="h4 margin-bottom-xs margin-top-xs">EDUCATION</label>
+                            <span class="icon icon-lg pull-right">school</span>
+                        </div>
+                        {{#each .Education.Graduations:j}}
+                            {{>Graduation}}
+                        {{/each}}
+                        {{#partial Graduation}}
+                        {{#if j == 0}}
+                            <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>
+                        {{/if}}
+                        {{#if j > 0}}
+                            <div class="col-xx-12 margin-bottom-no margin-top-no margin-left-sm hr"></div>
+                        {{/if}}                        
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                            <span class="pull-left">{{.GraduationType}}</span>
+                            <span class="pull-right">{{.GraduationYear}}</span>
+                        </div>
+                        <!-- identity data -->
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                            <span class="pull-left">{{.University.UniversityDepartment}}</span>
+                        </div>
+                        <!-- identity data -->
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                            <span class="pull-left">{{.University.UniversityName}}</span>
+                        </div> 
+                        {{/partial}}   
+                        <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>                        
+                        <div class="col-xx-12 margin-bottom-sm margin-top-sm padding-left-s">
+                            <label clas="h4 margin-bottom-xs margin-top-xs">WORKPLACE</label>
+                            <span class="icon icon-lg pull-right">work</span>
+                        </div>
+                        <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>                        
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                            <span class="pull-left">{{.Workplace.Title}}</span>
+                        </div>
+                        <!-- identity data -->
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                            <span class="pull-left">{{.Workplace.DepartmentName}}</span>
+                        </div>
+                        <!-- identity data -->
+                        <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                            <span class="pull-left">{{.Workplace.OrganizationName}}</span>
+                        </div> 
+                    </div>                                    
+                </div>
+            </div>
+        </div>
+        {{/partial}}
+    </script>
+    <!-- reactive templates will bind with this animation -->
+    <script>
+        var DEFAULTS = {
+	       delay: 0,
+	       duration: 300,
+	       easing: 'linear'
+        };
+
+        var fadeTransition = function fade ( t, params ) {
+	       var targetOpacity;
+
+	       params = t.processParams( params, DEFAULTS );
+
+	       if ( t.isIntro ) {
+		      targetOpacity = t.getStyle( 'opacity' );
+		      t.setStyle( 'opacity', 0 );
+	       } else {
+		      targetOpacity = 0;
+	       }
+
+	       t.animateStyle( 'opacity', targetOpacity, params ).then( t.complete );
+        };
+    </script>
+    <!-- picker -->
+    <script>
+        //grab pricker lib
+        var $pickerLib = $('.ui-picker-lib');   
+        //check jquery.ui registered
+        if(typeof jQuery.ui != 'undefined') {
+            $pickerLib.selectable({
+                filter: '.ui-picker-selectable-handler',
+                selecting: function(event, ui) {
+                    //selection action
+                    var $selectingParent = $(ui.selecting).parent();
+                    $selectingParent.addClass('tile-brand-accent ui-picker-selected');
+                    
+                    $('.ui-picker-info').addClass('ui-picker-info-active').removeClass('ui-picker-info-null');
+					$('.ui-picker-info-desc-wrap').html($selectingParent.find('.ui-picker-info-desc').html());
+					$('.ui-picker-info-title-wrap').html($selectingParent.find('.ui-picker-info-title').html());
+                },
+                unselecting: function(event, ui) {
+                    var $unselectingParent = $(ui.unselecting).parent();
+
+					$unselectingParent.removeClass('tile-brand-accent ui-picker-selected');
+
+					if (!$('.ui-picker-selected').length) {
+						$('.ui-picker-info').addClass('ui-picker-info-null');
+						$('.ui-picker-info-desc-wrap').html('');
+						$('.ui-picker-info-title-wrap').html('');
+					} else {
+						var $first = $($('.ui-picker-selected')[0]);
+
+						$('.ui-picker-info-desc-wrap').html($first.find('.ui-picker-info-desc').html());
+						$('.ui-picker-info-title-wrap').html($first.find('.ui-picker-info-title').html());
+                    }
+                }
+            });            
+        };
+        //picker handlers
+        $(document).on('click', '.ui-picker-info-close', function () {
+            $('.ui-picker-info').removeClass('ui-picker-info-active');
+	    });        
+    </script>
+    <script>
+        //get cookie for name
+        var findCookie = function(key) {
+            var name = key + '=';
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return '';
+        };        
+        //query validation
+        var isQueryNotValid = function(str) {
+            return str === null || str.length < 3;    
+        };
+        
+        var notifyUser = function(str, handle) {
+            $('body').snackbar({
+                alive: 3000,
+                content: '<a data-dismiss="snackbar" class="notification-click">OK</a><div class="snackbar-text">' + str + '</div>'
+            });            
+            if(handle) {
+                $('.notification-click').bind('click', handle);
+            }
+        };
+        
+        var callback = {
+            onSuccess: function(response) {
+                if(response.Code == 200) {
+                    //TODO handle callback
+                } else {
+                    //TODO handle 401 response
+                    var str = response.Message;
+                    notifyUser(str, null);
+                }
+                toggleProgress();
+            },
+            onError: function(err) {
+                var str = err.toString();
+                notifyUser(str, null);
+                toggleProgress();
+            }
+        };
+        
+        var constants = {//TODO change Url
+            Url : '/v1/endpoint/search',
+            HttpMethod: 'POST',
+            ContentType: 'application/json; charset=utf-8',
+            Headers: {
+                'X-Access-Token': findCookie('token')
+            },
+            DataType: 'json',
+            Callback: callback
+        };
+        
+        var request = function(dataSet) {
+            $.ajax({
+                url: constants.Url,
+                type: constants.HttpMethod,
+                data: JSON.stringify(query: dataSet),
+                headers: constants.Headers,
+                contentType: constants.ContentType,
+                dataType: constants.DataType,
+                success: constants.Callback.onSuccess,
+                failure: constants.Callback.onError
+            });    
+        };
+        
+        var changeEventHandler = function() {
+            var $n = $($(this));
+            var query = $n.val();
+            var isQueryValid = !isQueryNotValid(query);
+            if(!isQueryValid) {
+                notifyUser("You should enter at least 3 characters!", function() {
+                   $n.focus(); 
+                });
+                return;
+            }
+            toggleProgress();
+            var dataSet = { q: query };
+            request(dataSet);
+        };
+        
+        var searchEventHandler = function() {
+            var $n = $('#ui_search');
+            var query = $n.val(); 
+            var isQueryValid = !isQueryNotValid(query);
+            if(!isQueryValid) {
+                notifyUser("You should enter at least 3 characters!", function() {
+                   $n.focus(); 
+                });
+                return;
+            }
+            toggleProgress();
+            var dataSet = { q: query };
+            request(dataSet);
+        };       
+        
+        //handling state of progress
+        var toggleProgress = function() {
+            var proggress = $('#ui_progress');
+            var on = 'el-loading';
+            var off = 'el-loading-done';
+            var state = proggress.hasClass(off);
+            if(!state) {
+                proggress.removeClass(on);
+                proggress.addClass(off);
+            } else {
+                proggress.removeClass(off);
+                proggress.addClass(on);
+            }
+        };
+        
+        var Person = {
+            FirstName: 'Fatih',
+            MiddleName: 'Mehmet',
+            LastName: 'Şen',
+            IdentityNo: '34753893800',
+            Phone: '5327741307',
+            Social: {
+                Linkedin: 'linkedIn',
+                Twitter: 'twitter',
+                Facebook: 'facebook'
+            },
+            Education: {
+                Graduations: [
+                    {
+                        GraduationType: 'UNDERGRADUATE',
+                        GraduationYear: 2007,
+                        University: {
+                            UniversityName: 'Boğaziçi University',
+                            UniversityDepartment: 'Management Information Systems'
+                        }
+                    },
+                    {
+                        GraduationType: 'MASTER',
+                        GraduationYear: 2015,
+                        University: {
+                            UniversityName: 'Boğaziçi University',
+                            UniversityDepartment: 'Computer Sciences'
+                        }
+                    }
+                ]               
+            },
+            Workplace: {
+                Title: 'Senior Software Engineer',
+                DepartmentName: 'Production',
+                OrganizationName: 'Turkcell'
+            }
+        };
+        
+        var People = Ractive.extend({
+            template: '#template',              
+            partials: { },    
+            addItem: function(item) {
+                this.push('people', item);
+            },
+            removeItem: function(index) {
+                this.splice('people', index, 1);
+            },
+            oninit: function(options) {
+                this.on({
+                    remove: function(event) {
+                        this.removeItem(event.index.i);
+                    }
+                });
+            },                
+            transitions: {
+                fade: fadeTransition
+            }
+        });
+        
+        var viewModel = new People({
+            el: 'output',
+            data: {
+                People: [ Person ]
+            }
+        });
+        
+        $(document).ready(function() {           
+            //catch change event
+            $('#ui_search').bind('change', changeEventHandler);
+            //catch click event
+            $('#btn_search').bind('click', searchEventHandler);
+        });
+    </script>
+</body>    

@@ -1,0 +1,86 @@
+{{>Workplace}}
+{{#partial Workplace}}
+{{#if Workplace}}
+<div intro="fade" outro="fade" class="card-header">
+    <div class="card-inner">
+        <h1 class="card-heading">Workplace</h1>
+    </div>
+    <span class="icon icon-lg" style="padding-right:35px !important;">work</span>
+</div>
+<div intro="fade" outro="fade" class="card-inner">
+	<div class="clearfix">
+        <div class="margin-no-top margin-no-bottom pull-right no-margin">
+            <button class="btn btn-flat btn-brand waves-attach waves-effect waves-light pull-right" on-click="remove">REMOVE</button>                  
+        </div>
+    </div> 
+    <div class="form-group form-group-label">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <label class="floating-label" for="ui_workplace_title">Title</label>
+                <select class="form-control" id="ui_workplace_title" value="{{Workplace.Title}}">
+                    {{#titles}}
+                        <option value="{{TitleID}}">{{TitleName}}</option>
+                    {{/titles}}
+                </select>    
+            </div>
+        </div>
+    </div>
+    <div class="form-group form-group-label">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <label class="floating-label" for="ui_workpalce_department">Department</label>
+                <select class="form-control" id="ui_workpalce_department" value="{{Workplace.Department}}">
+                    {{#departments}}
+                        <option value="{{DepartmentID}}">{{DepartmentName}}</option>
+                    {{/departments}}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group form-group-label">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <label class="floating-label" for="ui_organization_name">Organization Name</label>
+                <input class="form-control" id="ui_organization_name" type="text" value="{{Workplace.OrganizationName}}" on-change="validateOrganizationName">                        
+            </div>
+        </div>
+    </div>
+    <div class="form-group form-group-label">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <label class="floating-label" for="ui_industry">Industry</label>
+                <select class="form-control" id="ui_industry" value="{{Workplace.Industry}}" >
+                    {{#industries}}
+                        <option value="{{IndustryID}}">{{IndustryName}}</option>
+                    {{/industries}}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group form-group-label col-md-6">
+        <div class="row">
+            <div class="col-md-12 col-md-push-1">
+                <label class="floating-label" for="ui_workplace_country">Country</label>
+                <select class="form-control" id="ui_workplace_country" value="{{Workplace.Country}}" on-change="countryChanged">
+                    {{#countries}}
+                        <option value="{{CountryID}}">{{CountryName}}</option>
+                    {{/countries}}
+                </select>
+            </div>                
+        </div>
+    </div>
+    <div class="form-group form-group-label col-md-6 col-md-pull-1 pull-right {{Workplace.Country ? '' : 'disabled'}}">
+        <div class="row">
+            <div class="col-md-12 col-md-push-1">
+                <label class="floating-label {{Workplace.Country ? '' : 'disabled'}}" for="ui_workplace_city">City</label>
+                <select class="form-control {{Workplace.Country ? '' : 'disabled'}}" id="ui_workplace_city" value="{{Workplace.City}}">
+                    {{#cities}}
+                        <option value="{{CityID}}">{{CityName}}</option>
+                    {{/cities}}
+                </select>
+            </div>
+        </div>
+    </div>
+</div>	
+{{/if}}
+{{/partial}}

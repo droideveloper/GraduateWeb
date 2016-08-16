@@ -1,0 +1,51 @@
+{{>Person}}
+{{#partial Person}}
+    <div intro="fade" class="card-header">
+        <div class="card-inner">
+            <h1 class="card-heading">Personal</h1>
+        </div>
+        <span class="icon icon-lg" style="padding-right:35px !important;">chrome_reader_mode</span>
+    </div>
+    <div intro="fade" class="card-inner">	
+        <div class="form-group form-group-label">
+            <div class="row">
+                <div class="col-md-10 col-md-push-1">
+                    <label class="floating-label" for="ui_identity">Identity or Pasport Number</label>
+                    <input class="form-control" id="ui_identity" type="text" value="{{.IdentityNo}}" on-change="validateIdentity">
+                </div>
+            </div>
+        </div>     
+        <div class="form-group form-group-label">
+            <div class="row">
+                <div class="col-md-10 col-md-push-1">
+                    <label class="floating-label" for="ui_fistname">First Name</label>
+                    <input class="form-control" id="ui_fistname" type="text" value="{{.FirstName}}" on-change="validateFirstName">
+                </div>
+            </div>
+        </div>                                    
+        <div class="form-group form-group-label">
+            <div class="row">
+                <div class="col-md-10 col-md-push-1">
+                    <label class="floating-label" for="ui_middlename">Middle Name</label>
+                    <input class="form-control" id="ui_middlename" type="text" value="{{.MiddleName}}">
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-group-label">
+            <div class="row">
+                <div class="col-md-10 col-md-push-1">
+                    <label class="floating-label" for="ui_lastname">Last Name</label>
+                    <input class="form-control" id="ui_lastname" type="text" value="{{.LastName}}" on-change="validateLastName">
+                </div>
+            </div>
+        </div>	
+        <div class="form-group form-group-label">
+            <div class="row">
+                <div class="col-md-10 col-md-push-1">
+                    <label class="floating-label" for="ui_phone">Phone</label>
+                    <input class="form-control" id="ui_phone" type="text" value="{{.Phone}}">
+                </div>
+            </div>
+        </div>	
+    </div>
+{{/partial}}

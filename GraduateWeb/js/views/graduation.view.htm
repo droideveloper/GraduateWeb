@@ -1,0 +1,81 @@
+{{#each Graduations: i}}
+    {{>Graduation}}
+{{/each}} 
+{{#partial Graduation}}
+ <div intro="fade" outro="fade" class="graduation">
+    {{#if i > 0}}
+    <div class="clearfix">
+        <div class="margin-no-top margin-no-bottom pull-right">
+            <button class="btn btn-flat btn-brand waves-attach waves-effect waves-light pull-right" on-click="remove">REMOVE</button>                  
+        </div>
+    </div>    
+    {{/if}}
+    {{#if i > 0}}
+        <div class="hr"></div>
+    {{/if}} 
+    <div class="form-group form-group-label">               
+        <div class="row">                                      
+            <div class="col-md-10 col-md-push-1">
+                <label class="floating-label" for="ui_graduate_year{{i}}">Graduate Year</label>
+                <select class="form-control" id="ui_graduate_year{{i}}" value="{{.GraduateYear}}">
+                    {{#years}}
+                        <option value="{{Year}}">{{Year}}</option>
+                    {{/years}}
+                </select>                 
+            </div>                   
+        </div>
+    </div>
+    <div class="form-group form-group-label">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <label class="floating-label" for="ui_graduate_type{{i}}">Graduation Type</label>
+                <select class="form-control" id="ui_graduate_type{{i}}" value="{{.GraduateType}}">
+                    {{#types}}
+                        <option value="{{GraduationTypeID}}">{{GraduationTypeName}}</option>
+                    {{/types}}
+                </select>									
+            </div>
+        </div>     
+    </div>
+    <div class="form-group form-group-label">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <label class="floating-label" for="ui_department{{i}}">Department</label>
+                <input class="form-control" id="ui_department{{i}}" value="{{.DepartmentName}}" type="text" on-change="validateDepartmentName">
+            </div>
+        </div>
+    </div>
+    <div class="form-group form-group-label">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <label class="floating-label" for="ui_university{{i}}">University</label>
+                <input class="form-control" id="ui_university{{i}}" value="{{.University}}" type="text" on-change="validateUniversityName">
+            </div>
+        </div>
+    </div>    
+    <div class="form-group form-group-label col-md-6">
+        <div class="row">                                            
+            <div class="col-md-12 col-md-push-1">
+                <label class="floating-label" for="ui_university_country{{i}}">Country</label>
+                <select class="form-control" id="ui_university_country{{i}}" value="{{.Country}}" on-change="countryChanged">
+                    {{#countries}}
+                        <option value="{{CountryID}}">{{CountryName}}</option>
+                    {{/countries}}
+                </select>
+            </div>
+        </div>
+    </div> 
+    <div class="form-group form-group-label col-md-6 pull-right {{.Country ? '' : 'disabled'}}">
+        <div class="row">                                            
+            <div class="col-md-12 col-md-pull-1">
+                <label class="floating-label {{.Country ? '' : 'disabled'}}"  for="ui_university_city{{i}}">City</label>
+                <select class="form-control {{.Country ? '' : 'disabled'}}" id="ui_university_city{{i}}" value="{{.City}}">
+                    {{#cities}}
+                        <option value="{{CityID}}">{{CityName}}</option>
+                    {{/cities}}
+                </select>
+            </div>                                         
+        </div>
+    </div>    
+</div>  
+{{/partial}}

@@ -1,0 +1,35 @@
+{{>Account}}
+{{#partial Account}}
+    <div intro="fade" class="card-header">
+        <div class="card-inner">
+            <h1 class="card-heading">Account</h1>
+        </div>
+        <span class="icon icon-lg" style="padding-right:35px !important;">person</span>
+    </div>
+    <div intro="fade" class="card-inner">					
+        <div class="form-group form-group-label">
+            <div class="row">
+                <div class="col-md-10 col-md-push-1">
+                    <label class="floating-label" for="ui_username">Username</label>
+                    <input class="form-control" id="ui_username" type="text" value="{{.UserName}}" on-change="validateUserName" >
+                </div>
+            </div>
+        </div>                                    
+        <div class="form-group form-group-label">
+            <div class="row">
+                <div class="col-md-10 col-md-push-1">
+                    <label class="floating-label" for="ui_password">Password</label>
+                    <input class="form-control" id="ui_password" type="password" value="{{.Password}}" on-change="validatePassword">
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-group-label">
+            <div class="row">
+                <div class="col-md-10 col-md-push-1">
+                    <label class="floating-label" for="ui_password_re">Password Again</label>
+                    <input class="form-control" id="ui_password_re" type="password" value="{{.PasswordRepeat}}" on-change="validatePasswordRe">
+                </div>
+            </div>
+        </div>									
+    </div>
+{{/partial}}

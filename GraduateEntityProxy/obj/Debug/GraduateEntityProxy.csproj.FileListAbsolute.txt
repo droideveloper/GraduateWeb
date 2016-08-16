@@ -1,0 +1,9 @@
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntityProxy\bin\Debug\GraduateEntityProxy.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntityProxy\bin\Debug\GraduateEntityProxy.pdb
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntityProxy\bin\Debug\GraduateEntity.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntityProxy\bin\Debug\EntityFramework.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntityProxy\bin\Debug\GraduateEntity.pdb
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntityProxy\bin\Debug\EntityFramework.xml
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntityProxy\obj\Debug\GraduateEntityProxy.csprojResolveAssemblyReference.cache
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntityProxy\obj\Debug\GraduateEntityProxy.dll
+C:\Users\ACER\Desktop\Graduate_Workspace\GraduateEntityProxy\obj\Debug\GraduateEntityProxy.pdb

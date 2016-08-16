@@ -1,0 +1,1 @@
+﻿INSERT INTO Users VALUES ('YOUR_USER_NAME (should be email format)', CONVERT(VARCHAR(32), HASHBYTES('MD5', 'YOUR_PASSWORD (at least 8 chars)'), 2), 1, 1, null, GETDATE(), GETDATE(), GETDATE());

@@ -1,0 +1,151 @@
+﻿{{#each People:i}}
+    {{>Person}}
+{{/each}}
+{{#partial Person}}
+<div class="tile ui-picker-item">
+    <div class="ui-picker-selectable-handler"></div>
+    <div class="tile-side pull-left">
+        <div class="avatar avatar-sm ui-picker-draggable-avatar ui-picker-draggable-handler">
+            <strong>{{.FirstName.charAt(0)}}</strong>
+            <span class="icon icon-lg">info</span>
+        </div>
+    </div>
+    <div class="tile-inner">
+        <div class="media">
+            <div class="media-object pull-right">
+                <small>{{.Education.Graduations[0].GraduateYear}}</small>
+            </div>
+            <div class="media-inner text-overflow">
+                <span class="ui-picker-info-title">{{.FirstName}} {{#if .MiddleName}} {{.MiddleName}} {{/if}} {{.LastName}}</span>               
+            </div>
+        </div>
+        <div class="access-hide">
+            <div class="ui-picker-info-desc">
+                 {{#if isAdmin}}
+                <div class="col-xx-12 margin-bottom-sm margin-top-sm padding-left-sm">
+                    <label class="h4 margin-bottom-xs margin-top-xs">ACCOUNT STATUS</label>
+                    <span class="icon icon-lg pull-right margin-top-sm">settings</span>
+                </div>
+                <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>
+                <div class="col-xx-12 margin-bottom-sm margin-top-sm padding-left-sm">
+                    <div class="clearfix">
+                        <button class="btn btn-flat btn-brand waves-attach waves-effect waves-light" id="btnActivate{{i}}" onclick="activateEventHandler({{i}})"><span class="ui-button-text">{{.isApproved ? 'Deactivate' : 'Activate'}}</span></button>
+                    </div>
+                </div>
+                <div class="col-xx-12 margin-bottom-sm margin-top-sm padding-left-sm">
+                    <div class="clearfix">
+                        <button class="btn btn-flat btn-brand waves-attach waves-effect waves-light" id="btnResetPassword{{i}}" onclick="resetPasswordEventHandler({{i}})"><span class="ui-button-text">Reset Password</span></button>
+                    </div>
+                </div> 
+                <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>                         
+                {{/if}}                
+                <div class="col-xx-12 margin-bottom-sm margin-top-sm padding-left-sm">
+                    <label class="h4 margin-bottom-xs margin-top-xs">SOCIAL</label>
+                    <span class="icon icon-lg pull-right margin-top-sm">share</span>
+                </div>
+                <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>
+                <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span>{{.Social.Linkedin}}</span>
+                </div>
+                {{#if .Social.Twitter}}
+                <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span>{{.Social.Twitter}}</span>
+                </div>
+                {{/if}}
+                {{#if .Social.Facebook}}
+                <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span>{{.Social.Facebook}}</span>
+                </div>       
+                {{/if}}
+				<!-- EDUCATION -->
+                <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>                        
+                <div class="col-xx-12 margin-bottom-sm margin-top-sm padding-left-sm">
+                    <label class="h4 margin-bottom-xs margin-top-xs">EDUCATION</label>
+                    <span class="icon icon-lg pull-right margin-top-sm">school</span>
+                </div>
+                {{#each .Education.Graduations: j}}
+                    {{>Graduation}}
+                {{/each}}
+                {{#partial Graduation}}
+                {{#if j == 0}}
+                    <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>
+                {{/if}}
+                {{#if j > 0}}
+                    <div class="col-xx-12 margin-bottom-no margin-top-no margin-left-sm hr"></div>
+                {{/if}}                        
+                <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.GraduationType.GraduationTypeName}}</span>
+                    <span class="pull-right">{{.GraduateYear}}</span>
+                </div>
+                <!-- identity data -->
+                <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.University.UniversityDepartment}}</span>
+                </div>
+                <!-- identity data -->
+                <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.University.UniversityName}}</span>
+                </div> 
+                <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.City.CityName}}, {{.Country.CountryName}}</span>
+                </div> 
+                {{/partial}}
+				{{#if .Exchange}}
+				<div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>                        
+                <div class="col-xx-12 margin-bottom-sm margin-top-sm padding-left-sm">
+                    <label class="h4 margin-bottom-xs margin-top-xs">EXCHANGE</label>
+                    <span class="icon icon-lg pull-right margin-top-sm">school</span>
+                </div>
+				<div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>                        
+				<div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.Exchange.Year}}</span>
+                </div>
+				<div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.Exchange.University.UniversityName}}</span>
+                </div>
+				<div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.Exchange.University.City.CityName}}, {{.Exchange.University.Country.CountryName}}</span>
+                </div>
+				{{/if}}
+				{{#if .Cap}}
+				<div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>                        
+                <div class="col-xx-12 margin-bottom-sm margin-top-sm padding-left-sm">
+                    <label class="h4 margin-bottom-xs margin-top-xs">Major/Minor Program</label>
+                    <span class="icon icon-lg pull-right margin-top-sm">school</span>
+                </div>
+				<div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>
+				<div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>                        
+				<div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.Cap.Year}}</span>
+                </div>
+				<div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.Cap.GraduationType.GraduationTypeName}}</span>
+                </div>
+				<div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.Cap.DepartmentName}}</span>
+                </div>
+				{{/if}}
+				{{#if .Workplace}}
+                <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>                        
+                <div class="col-xx-12 margin-bottom-sm margin-top-sm padding-left-sm">
+                    <label class="h4 margin-bottom-xs margin-top-xs">WORKPLACE</label>
+                    <span class="icon icon-lg pull-right margin-top-sm">work</span>
+                </div>
+                <div class="col-xx-12 margin-bottom-no margin-top-no hr"></div>                        
+                <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.Workplace.Title.TitleName}}</span>
+                </div>
+                <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.Workplace.Department.DepartmentName}}</span>
+                </div>
+                <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.Workplace.Industry.IndustryName}}, {{.Workplace.OrganizationName}}</span>
+                </div> 
+                <div class="col-xx-12 margin-top-xs margin-bottom-xs margin-left-sm">
+                    <span class="pull-left">{{.Workplace.City.CityName}}, {{.Workplace.Country.CountryName}}</span>
+                </div> 
+				{{/if}}
+            </div>                                    
+        </div>
+    </div>
+</div>
+{{/partial}}

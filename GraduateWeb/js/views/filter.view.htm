@@ -1,0 +1,45 @@
+{{> Filter}}
+{{#partial Filter}}
+<div aria-hidden="true" class="modal modal-va-middle fade" id="ui_filter_dialog" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-xs">
+        <div class="modal-content">
+            <div class="modal-heading">
+                <h2 class="modal-title">Select Filter Options</h2>
+            </div>
+            <div class="modal-inner">
+                <div class="form-group form-group-label col-md-6">
+                    <div class="row">
+                        <div class="col-md-12 col-md-push-1">
+                            <label class="floating-label" for="ui_type">Filter Type</label>
+                            <select class="form-control" id="ui_type" value="{{Filter.FilterID}}" on-change="selectedFilter">
+                                {{#filters}}
+                                    <option value="{{FilterID}}">{{FilterType}}</option>
+                                {{/filter}}
+                            </select>
+                        </div>                
+                    </div>
+                </div>
+                <div class="form-group form-group-label col-md-6 col-md-pull-1 pull-right {{Filter.FilterID ? '' : 'disabled'}}">
+                    <div class="row">
+                        <div class="col-md-12 col-md-push-1">
+                            <label class="floating-label {{Filter.FilterID ? '' : 'disabled' }}" for="ui_workplace_city">Filter Value</label>
+                            <select class="form-control  {{Filter.FilterID ? '' : 'disabled' }}" id="ui_filter" value="{{Filter.ContentID}}">
+                                {{#contents}}
+                                    <option value="{{ContentID}}">{{ContentName}}</option>
+                                {{/contents}}
+                            </select>
+                        </div>
+                    </div>
+                </div>         	
+            </div>
+            <div class="modal-footer">
+                <div class="text-right">
+                    <button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" on-click="clearContents">CANCEL</button>
+                    <button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" on-click="queryFilter">FILTER</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/partial}}
+

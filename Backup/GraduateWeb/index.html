@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" >	
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="mobile-web-app-capable" content="yes">
+   
+    <!-- css -->
+	<link href="css/base.min.css" rel="stylesheet">
+	<link href="css/project.min.css" rel="stylesheet">
+    <style type="text/css">
+        /*
+            original .form-group style has top and bottom margin of 24px
+            however when we added form-group-label it overrides it as 36px
+            personally find it too large so need to override it to it's defaults
+        */
+        .form-group {
+            margin-bottom: 24px;
+            margin-top: 24px;
+        }
+        
+        .form-group .form-group-label {
+            margin-bottom: 24px;
+            margin-top: 24px;
+        }
+        
+        .el-loading-indicator {
+            background-color: transparent;
+        }    
+    </style>
+</head>
+<body class="page-brand">
+	<header class="header header-brand ui-header">
+		<span class="header-logo">Sign in</span><!-- TODO change title -->
+	</header>
+	<main class="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-lg-push-4 col-sm-6 col-sm-push-3">
+					<section class="content-inner">                        
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h1 class="card-heading">Login</h1>
+									</div>
+								</div>                                
+								<div class="card-inner">
+									<p class="text-center">
+										<span class="avatar avatar-inline avatar-lg">
+											<img alt="Login" src="img/user.png">
+										</span>
+									</p>
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_username">Username</label>
+												<input class="form-control" id="ui_username" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="ui_password">Password</label>
+												<input class="form-control" id="ui_password" type="password">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">                                        
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<button id="btnSignin" class="btn btn-block btn-brand waves-attach waves-light">Sign In</button>
+											</div>                                              
+										</div>
+									</div>
+                                    <div class="clearfix">
+                                        <div class="el-loading-done" id="ui_progress">
+                                            <div class="el-loading-indicator">
+								                <div class="progress progress-position-absolute-top">
+								                    <div class="progress-bar-indeterminate"></div>
+								                </div>
+				                            </div>
+                                        </div>  
+                                    </div>
+								</div>
+							</div>                            
+                        </div>                        
+                        <div class="clearfix">                            
+				            <p class="margin-no-top pull-left">
+                                <button class="btn btn-flat btn-brand waves-attach">Need help?</button>
+                            </p>
+							<p class="margin-no-top pull-right">
+                                <button class="btn btn-flat btn-brand waves-attach">Create an account</button>
+                            </p>
+				        </div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="ui-footer">
+		<div class="container">
+            <p>Welcome To Graduation Database Sign in Page</p>
+		</div>
+	</footer>
+	<script src='js/jquery-3.1.0.min.js'></script>
+    <script src='js/base.min.js'></script>
+	<script src='js/md5.js'></script>	
+	<script>
+        //username validation fn
+        var isEmailNotValid = function(str) {
+            var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return str === null || !regex.test(str);//if str null or not match regex condition we can say it's not valid
+        };
+        //password validation fn
+        var isPasswordNotValid = function(str) {
+            return str === null || str.length < 8;//if str null or not at least 8 chars we can say it's not valid  
+        };
+        //this will show notification
+        var notifyUser = function(str, handle) {
+            $('body').snackbar({
+                alive: 3000,
+                content: '<a data-dismiss="snackbar" class="notification-click">OK</a><div class="snackbar-text">' + str + '</div>'
+            });
+            //if we have handle
+            if(handle) {
+                $('.notification-click').bind('click', handle);
+            }
+        };
+        //callback for our ajax request, for login
+        var callback = {
+            onSuccess: function(response) {
+                if(response.Code == 200) {
+                    //TODO handle success
+                } else {
+                    var str = response.Message;
+                    notifyUser(str, null);
+                }
+                toggleButtonSignin();
+                toggleProgress();
+            },
+            onError: function(err) {
+                var str = err.toString();
+                notifyUser(err, null);
+                toggleButtonSignin();
+                toggleProgress();
+            }
+        };
+        //handling state of progress
+        var toggleProgress = function() {
+            var proggress = $('#ui_progress');
+            var on = 'el-loading';
+            var off = 'el-loading-done';
+            var state = proggress.hasClass(off);
+            if(!state) {
+                proggress.removeClass(on);
+                proggress.addClass(off);
+            } else {
+                proggress.removeClass(off);
+                proggress.addClass(on);
+            }
+        };
+        //handle state of button
+        var toggleButtonSignin = function() {
+            var btn = $('#btnSignin');
+            var off = 'disabled';
+            var isDisabled = btn.hasClass(off);
+            if(isDisabled) {
+                btn.removeClass(off);
+            } else {
+                btn.addClass(off);
+            }
+        };
+        
+        //api constants
+        var constants = {//TODO change URL
+            Url: '/v1/endpoint/sign-in',    
+            HttpMethod: 'POST',
+            ContentType: 'application/json; charset=utf-8',
+            DataType: 'json',
+            Callback: callback
+        };
+        //where we do ajax request
+        var request = function(dataSet) {
+            $.ajax({
+                url: constants.Url,
+                type: constants.HttpMethod,
+                data: JSON.stringify(usr: dataSet),
+                contentType: constants.ContentType,
+                dataType: constants.DataType,
+                success: constants.Callback.onSuccess,
+                failure: constants.Callback.onError
+            });            
+        };
+        //click handle for our button
+        var clickEventHandler = function() {
+            //until we done we need to unbind our click handle    
+            toggleButtonSignin();
+            //check if data is valid
+            var userName = $('#ui_username').val();
+            var password = $('#ui_password').val();
+            //username validation
+            var isUserNameValid = !isEmailNotValid(userName);
+            if(!isUserNameValid) {
+                notifyUser('Please Enter Valid Username', function() {
+                    $('#ui_username').focus();
+                });
+                //failed bind click again
+                toggleButtonSignin();
+                return;//exit
+            }
+            //password validation
+            var isPasswordValid = !isPasswordNotValid(password);
+            if(!isPasswordValid) {
+                notifyUser('Please Enter Valid Password', function() {
+                    $('#ui_password').focus();    
+                });
+                //failed bind click again
+                toggleButtonSignin();
+                return;//exit
+            }
+            //show proggress
+            toggleProgress();
+            
+            //no need local for upperCase since it will provide hexStr
+            password = md5(password).toUpperCase();
+            var dataSet = { 'Username': userName, 'Password': password };
+            request(dataSet);
+        };
+        //store data in cookie valid for 30 mins
+        var storeCookie = function(key, value) {
+            var now = new Date();
+            now.setTime(now.getTime() + 30 * 60 * 1000);//cookie will valid for 30 mins
+            var dueStr = now.toUTCString();
+            document.cookie = key + '=' + value + '; expires=' + dueStr;          
+        };
+        //register events when document ready
+		$(document).ready(function() {            
+            //button register event listener for click
+			$('#btnSignin').bind('click', clickEventHandler);
+		});
+	</script>		
+</body>
+</html>

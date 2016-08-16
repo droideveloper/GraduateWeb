@@ -1,0 +1,1 @@
+﻿var d={delay:0,duration:150,easing:"linear"},fadeTransition=function(a,t){var e;t=a.processParams(t,d),a.isIntro?(e=a.getStyle("opacity"),a.setStyle("opacity",0)):e=0,a.animateStyle("opacity",e,t).then(a.complete)};

@@ -1,0 +1,9 @@
+{{#each Cities: i}}
+    {{>City}}
+{{/each}}
+{{#partial City}}
+    {{#if i === 0}}
+        <option value="0"></option><!-- Empty Means Null -->
+    {{/if}}
+    <option value="{{.CityID}}">{{.CityName}}</option>
+{{/partial}}

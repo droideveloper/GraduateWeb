@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="ContextCreatingConsoleApp/ContextCreatingConsoleApp.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ContextCreatingConsoleApp/Program.cs">
+    <Files>
+      <File FileName="ContextCreatingConsoleApp/Program.cs" Line="43" Column="4" />
+      <File FileName="GraduateEntity/Model/GraduationType.cs" Line="24" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ContextCreatingConsoleApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.GraduateWeb PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

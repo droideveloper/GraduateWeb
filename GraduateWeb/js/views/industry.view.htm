@@ -1,0 +1,9 @@
+{{#each Industries: i}}
+    {{>Industry}}
+{{/each}}
+{{#partial Industry}}
+    {{#if i === 0}}
+        <option value="0"></option><!-- Empty means null -->
+    {{/if}}
+    <option value="{{.IndustryID}}">{{.IndustryName}}</option>
+{{/partial}}

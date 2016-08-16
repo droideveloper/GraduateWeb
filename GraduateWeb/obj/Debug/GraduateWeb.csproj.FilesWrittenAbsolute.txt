@@ -1,0 +1,11 @@
+/Users/Fatih/Projects/Graduate_Workspace/GraduateWeb/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/Fatih/Projects/Graduate_Workspace/GraduateWeb/bin/GraduateWeb.dll.mdb
+/Users/Fatih/Projects/Graduate_Workspace/GraduateWeb/bin/GraduateWeb.dll
+/Users/Fatih/Projects/Graduate_Workspace/GraduateWeb/obj/Debug/GraduateWeb.dll
+/Users/Fatih/Projects/Graduate_Workspace/GraduateWeb/obj/Debug/GraduateWeb.dll.mdb
+/Users/Fatih/Projects/Graduate_Workspace/GraduateWeb/bin/EntityFramework.dll
+/Users/Fatih/Projects/Graduate_Workspace/GraduateWeb/bin/EntityFramework.SqlServer.dll
+/Users/Fatih/Projects/Graduate_Workspace/GraduateWeb/bin/MySql.Data.dll
+/Users/Fatih/Projects/Graduate_Workspace/GraduateWeb/bin/MySql.Data.Entity.EF6.dll
+/Users/Fatih/Projects/Graduate_Workspace/GraduateWeb/bin/GraduateEntity.dll
+/Users/Fatih/Projects/Graduate_Workspace/GraduateWeb/bin/GraduateEntity.dll.mdb

@@ -1,0 +1,55 @@
+{{>Exchange}}
+{{#partial Exchange}}
+<div intro="fade" class="card-header">
+    <div class="card-inner">
+        <h1 class="card-heading">Exchange</h1>
+    </div>
+    <span class="icon icon-lg" style="padding-right:35px !important;">school</span>
+</div>
+<div intro="fade" class="card-inner">
+    <div class="form-group form-group-label">               
+        <div class="row">                                      
+            <div class="col-md-10 col-md-push-1">
+                <label class="floating-label" for="ui_exchange_year">Year</label>
+                <select class="form-control" id="ui_exchange_year" value="{{Exchange.Year}}">
+                    {{#years}}
+                        <option value="{{Year}}">{{Year}}</option>
+                    {{/years}}
+                </select>                 
+            </div>                   
+        </div>
+    </div>
+    <div class="form-group form-group-label">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <label class="floating-label" for="ui_exchange_university">University</label>
+                <input class="form-control" id="ui_exchange_university" value="{{Exchange.University}}" type="text" on-change="validateUniversityName">
+            </div>
+        </div>
+    </div>    
+    <div class="form-group form-group-label col-md-6">
+        <div class="row">                                            
+            <div class="col-md-12 col-md-push-1">
+                <label class="floating-label" for="ui_exchange_country">Country</label>
+                <select class="form-control" id="ui_exchange_country" value="{{Exchange.Country}}" on-change="countryChanged">
+                    {{#countries}}
+                        <option value="{{CountryID}}">{{CountryName}}</option>
+                    {{/countries}}
+                </select>
+            </div>
+        </div>
+    </div> 
+    <div class="form-group form-group-label col-md-6 pull-right {{Exchange.Country ? '' : 'disabled'}}">
+        <div class="row">                                            
+            <div class="col-md-12 col-md-pull-1">
+                <label class="floating-label {{Exchange.Country ? '' : 'disabled'}}"  for="ui_exchange_city">City</label>
+                <select class="form-control {{Exchange.Country ? '' : 'disabled'}}" id="ui_exchange_city" value="{{Exchange.City}}">
+                    {{#cities}}
+                        <option value="{{CityID}}">{{CityName}}</option>
+                    {{/cities}}
+                </select>
+            </div>                                         
+        </div>
+    </div>    
+</div>    
+{{/partial}}

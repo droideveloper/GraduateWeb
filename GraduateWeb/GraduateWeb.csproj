@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{89DE1DC5-3F7B-4E38-8BF7-1A0BF8109E3D}</ProjectGuid>
+    <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>GraduateWeb</RootNamespace>
+    <AssemblyName>GraduateWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <JSLintSkip>\assets\js\_.js|\assets\js\bootstrap.js|\assets\js\form-floating-label.js|\assets\js\form-textarea.js|\assets\js\header.js|\assets\js\menu.js|\assets\js\modal.js|\assets\js\picker.js|\assets\js\snackbar.js|\assets\js\tab.js|\assets\js\tile.js|\assets\js\wave.js|\assets\js-project\page-picker.js|\assets\js-project\ui-picker.js|\assets\js-project\ui-progress.js|\assets\js-project\ui-snackbar.js|\js\base.min.js|\js\jquery-3.1.0.min.js|\js\jquery-ui.min.js|\js\ractive.min.js</JSLintSkip>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Routing" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Graduates.mdf" />
+    <Content Include="App_Data\Graduates_log.ldf">
+      <DependentUpon>Graduates.mdf</DependentUpon>
+    </Content>
+    <Content Include="Global.asax" />
+    <Content Include="js\reset.aspx.js" />
+    <Content Include="js\views\workplace.dialog.view.htm" />
+    <Content Include="reset.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="assets\js\_.js" />
+    <Content Include="assets\js\bootstrap.js" />
+    <Content Include="assets\js\form-floating-label.js" />
+    <Content Include="assets\js\form-textarea.js" />
+    <Content Include="assets\js\header.js" />
+    <Content Include="assets\js\menu.js" />
+    <Content Include="assets\js\modal.js" />
+    <Content Include="assets\js\picker.js" />
+    <Content Include="assets\js\snackbar.js" />
+    <Content Include="assets\js\tab.js" />
+    <Content Include="assets\js\tile.js" />
+    <Content Include="assets\js\wave.js" />
+    <Content Include="assets\js-project\page-picker.js" />
+    <Content Include="assets\js-project\ui-picker.js" />
+    <Content Include="assets\js-project\ui-progress.js" />
+    <Content Include="assets\js-project\ui-snackbar.js" />
+    <Content Include="assets\sass\base.scss" />
+    <Content Include="assets\sass\addons\_material-icons.scss" />
+    <Content Include="assets\sass\addons\_waves.scss" />
+    <Content Include="assets\sass\addons\material-icons\_core.scss" />
+    <Content Include="assets\sass\addons\material-icons\_larger.scss" />
+    <Content Include="assets\sass\addons\material-icons\_path.scss" />
+    <Content Include="assets\sass\addons\material-icons\_variables.scss" />
+    <Content Include="assets\sass\base\_grid.scss" />
+    <Content Include="assets\sass\base\_reset.scss" />
+    <Content Include="assets\sass\components\_avatar.scss" />
+    <Content Include="assets\sass\components\_breadcrumb.scss" />
+    <Content Include="assets\sass\components\_button-flat.scss" />
+    <Content Include="assets\sass\components\_button-float.scss" />
+    <Content Include="assets\sass\components\_button.scss" />
+    <Content Include="assets\sass\components\_card.scss" />
+    <Content Include="assets\sass\components\_code.scss" />
+    <Content Include="assets\sass\components\_dropdown.scss" />
+    <Content Include="assets\sass\components\_form-checkbox.scss" />
+    <Content Include="assets\sass\components\_form-floating-label.scss" />
+    <Content Include="assets\sass\components\_form-switch.scss" />
+    <Content Include="assets\sass\components\_form-textarea.scss" />
+    <Content Include="assets\sass\components\_form.scss" />
+    <Content Include="assets\sass\components\_label.scss" />
+    <Content Include="assets\sass\components\_modal.scss" />
+    <Content Include="assets\sass\components\_nav.scss" />
+    <Content Include="assets\sass\components\_picker.scss" />
+    <Content Include="assets\sass\components\_progress-circular.scss" />
+    <Content Include="assets\sass\components\_progress-loadbar.scss" />
+    <Content Include="assets\sass\components\_progress.scss" />
+    <Content Include="assets\sass\components\_snackbar.scss" />
+    <Content Include="assets\sass\components\_stepper.scss" />
+    <Content Include="assets\sass\components\_tab.scss" />
+    <Content Include="assets\sass\components\_table.scss" />
+    <Content Include="assets\sass\components\_tile.scss" />
+    <Content Include="assets\sass\elements\_content.scss" />
+    <Content Include="assets\sass\elements\_header.scss" />
+    <Content Include="assets\sass\elements\_menu.scss" />
+    <Content Include="assets\sass\mixin\_grid.scss" />
+    <Content Include="assets\sass\mixin\_responsive.scss" />
+    <Content Include="assets\sass\mixin\_utilities.scss" />
+    <Content Include="assets\sass\utilities\_print.scss" />
+    <Content Include="assets\sass\utilities\_utilities-responsive.scss" />
+    <Content Include="assets\sass\utilities\_utilities.scss" />
+    <Content Include="assets\sass\var\_colours.scss" />
+    <Content Include="assets\sass\var\_variables.scss" />
+    <Content Include="assets\sass-project\project.scss" />
+    <Content Include="assets\sass-project\templates\_page-picker.scss" />
+    <Content Include="assets\sass-project\templates\_ui-card.scss" />
+    <Content Include="assets\sass-project\templates\_ui-tab.scss" />
+    <Content Include="css\base.min.css" />
+    <Content Include="css\project.min.css" />
+    <Content Include="css\fonts\MaterialIcons-Regular.eot" />
+    <Content Include="css\fonts\MaterialIcons-Regular.svg" />
+    <Content Include="css\fonts\MaterialIcons-Regular.ttf" />
+    <Content Include="css\fonts\MaterialIcons-Regular.woff" />
+    <Content Include="js\base.min.js" />
+    <Content Include="js\jquery-3.1.0.min.js" />
+    <Content Include="js\jquery-ui.min.js" />
+    <Content Include="js\md5.js" />
+    <Content Include="js\ractive.min.js" />
+    <Content Include="img\user-avatar.jpg" />
+    <Content Include="index.aspx" />
+    <Content Include="query.aspx" />
+    <Content Include="create.aspx" />
+    <Content Include="css\site.css" />
+    <Content Include="js\index.aspx.js" />
+    <Content Include="js\views\account.view.htm" />
+    <Content Include="js\views\person.view.htm" />
+    <Content Include="js\views\social.view.htm" />
+    <Content Include="js\views\graduation.view.htm" />
+    <Content Include="js\views\workplace.view.htm" />
+    <Content Include="js\fade.js" />
+    <Content Include="js\create.aspx.js" />
+    <Content Include="js\views\cap.view.htm" />
+    <Content Include="js\views\exchange.view.htm" />
+    <Content Include="js\query.aspx.js" />
+    <Content Include="js\views\people.view.htm" />
+    <Content Include="js\views\filter.view.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="IEndpoint.cs" />
+    <Compile Include="Endpoint.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Endpoint.svc" />
+    <None Include="assets\.DS_Store" />
+    <None Include="assets\sass\.DS_Store" />
+    <None Include="assets\sass-project\.DS_Store" />
+    <None Include="css\fonts\MaterialIcons-Regular.ijmap" />
+    <None Include="css\fonts\MaterialIcons-Regular.woff2" />
+    <None Include="css\fonts\README.md" />
+    <None Include="css\fonts\codepoints" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GraduateEntityProxy\GraduateEntityProxy.csproj">
+      <Project>{2bde5497-e7d9-4844-ba69-5fb32e392347}</Project>
+      <Name>GraduateEntityProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GraduateEntity\GraduateEntity.csproj">
+      <Project>{274BCA23-95FB-451E-9A6D-B540BEBB7C4E}</Project>
+      <Name>GraduateEntity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
+    <VisualStudio>
+      <FlavorProperties GUID="{349C5851-65DF-11DA-9384-00065B846F21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2121</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+</Project>
